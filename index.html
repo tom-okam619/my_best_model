@@ -10,7 +10,7 @@
     
     <style>
         /* ====================================
-           1. Global Variables and Base Styles
+           1. Global Variables and Base Styles (PC/Default)
            ==================================== */
         :root {
             --color-bg-deep: #0C101A; /* Deep Blue-Black */
@@ -52,14 +52,14 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 80px 5%;
+            padding: 80px 5%; /* PC版のパディング */
         }
         
         /* ====================================
-           2. Titles and Headers
+           2. Titles and Headers (PC/Default)
            ==================================== */
         h1 {
-            font-size: 3.8rem;
+            font-size: 3.8rem; /* PC版のタイトルサイズ */
             color: var(--color-accent-pink); 
             text-align: center;
             line-height: 1.2;
@@ -96,6 +96,7 @@
             text-shadow: var(--glow-primary);
         }
 
+        /* 緑色の強調スタイル */
         .emphasis {
             color: var(--color-secondary-neon);
             font-weight: bold;
@@ -237,6 +238,11 @@
         /* ====================================
            6. Final Block
            ==================================== */
+        .catchphrase .emphasis_final_pre {
+            font-weight: bold; /* 結論の前振りテキストを太字に */
+            color: #E0E0E0; 
+        }
+
         .catchphrase .emphasis-final {
             font-size: 1.6em;
             line-height: 1.5;
@@ -245,6 +251,65 @@
             text-shadow: var(--glow-pink);
             margin: 10px 0;
         }
+
+        /* ====================================
+           7. ⚡ MOBILE OPTIMIZATION (Max Width 768px) ⚡
+           ==================================== */
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 40px 4%; /* スマホ版のパディングを減らす */
+            }
+
+            h1 {
+                font-size: 1.8rem; /* スマホ版のタイトルサイズを大幅に縮小 */
+                letter-spacing: 1px;
+                padding-top: 30px;
+            }
+            
+            h1 span {
+                font-size: 0.5em !important; /* サブタイトルも小さく */
+            }
+
+            .subtitle {
+                font-size: 0.9em;
+                line-height: 1.5;
+            }
+
+            .theoretical-model-section h2 {
+                font-size: 1.6rem; /* セクション見出しを縮小 */
+                margin: 40px 0 20px 0;
+            }
+
+            .theoretical-model-section h3 {
+                font-size: 1.3rem; /* サブ見出しを縮小 */
+                margin-top: 30px;
+            }
+
+            .duty-list li {
+                padding: 15px; /* リスト項目のパディングを減らす */
+                margin-bottom: 20px;
+            }
+            
+            .duty-title {
+                font-size: 1.1rem;
+            }
+            
+            /* ネットワーク図の高さと情報を調整 */
+            .cyber-diagram-wrapper {
+                height: 200px; /* 図の高さを抑える */
+                padding: 20px 10px;
+            }
+            
+            .diagram-info {
+                font-size: 1.0rem; /* 図の情報を小さく */
+                width: 90%;
+            }
+
+            .catchphrase .emphasis-final {
+                font-size: 1.1em; /* 最後のメッセージを縮小 */
+            }
+        }
+
     </style>
 </head>
 <body class="top" id="top">
@@ -268,13 +333,13 @@
                 <section id="section-message" class="fade-in">
                     <h2>🧠 REALISTIC MOTIVATION: モデル構築のリアルな動機（悲しい結末）</h2>
                     <p class="critical-text">
-                        この世界には、ホジキン・ハクスレー（HH）という華々しい成功例が存在します。彼らは、活動電位という生命の根源的な現象に対し、**当時未解明だった「ゲート」の存在**という、まるで未来予知のような深い洞察を数理的に提示しました。
+                        この世界には、ホジキン・ハクスレー（HH）という華々しい成功例が存在します。彼らは、活動電位という生命の根源的な現象に対し、<span class="emphasis">当時未解明だった「ゲート」の存在</span>という、まるで未来予知のような深い洞察を数理的に提示しました。
                     </p>
                     <p class="critical-text">
-                        しかし、我々の足元の現実はどうでしょう。学会会場を席巻するのは、**「とりあえず既存のモデルに項を一つ足しました」**、**「パラメータを増やしたら再現性が上がりました。画期的です」**と誇らしげに語る、**自称「さいきょう」モデル**の山です。
+                        しかし、我々の足元の現実はどうでしょう。学会会場を席巻するのは、<span class="emphasis">「とりあえず既存のモデルに項を一つ足しました」</span>、<span class="emphasis">「パラメータを増やしたら再現性が上がりました。画期的です」</span>と誇らしげに語る、**自称「さいきょう」モデル**の山です。
                     </p>
                     <p class="critical-text">
-                        モデルの評価が、**「なぜこの数式なのか」**ではなく、**「とりあえずデータに合えばよい」**という安易なゴールに設定された瞬間、そのモデルは、**<span class="emphasis">数式という名の独房</span>**に閉じ込められ、非常に限定的な事象しか説明できない**<span class="emphasis">「おもちゃ」</span>**と化します。私たちは、この自己満足に終わった「おもちゃのモデル」の氾濫と、真摯に向き合わなければなりません。
+                        モデルの評価が、**「なぜこの数式なのか」**ではなく、**「とりあえずデータに合えばよい」**という安易なゴールに設定された瞬間、そのモデルは、<span class="emphasis">数式という名の独房</span>に閉じ込められ、非常に限定的な事象しか説明できない<span class="emphasis">「おもちゃ」</span>と化します。私たちは、この自己満足に終わった「おもちゃのモデル」の氾濫と、真摯に向き合わなければなりません。
                     </p>
                 </section>
 
@@ -304,36 +369,36 @@
                 <section id="section-purpose" class="fade-in">
                     <h2>💥 SIN AND PUNISHMENT: 「無茶苦茶な設定」である三つの確信犯的パターン</h2>
                     <p class="critical-text">
-                        数理モデルは、研究者の**「仮説」**という名の世界観に強く依存します。私たちは、その仮説（世界観）を構築する手間をサボった結果、以下のような**<span class="emphasis">確信犯的</span>**なミスを犯しがちです。
+                        数理モデルは、研究者の<span class="emphasis">「仮説」</span>という名の世界観に強く依存します。私たちは、その仮説（世界観）を構築する手間をサボった結果、以下のような<span class="emphasis">確信犯的</span>なミスを犯しがちです。
                     </p>
 
                     <h3>確信犯 1: "JUST ADD ANYTHING" SYNDROME (とりあえず何でも足す症候群)</h3>
                     <p class="critical-text">
-                        現象が再現できないとき、私たちはつい、生物学的な根拠が曖昧なまま、非線形項、飽和項、フィードバック項を次々と追加してしまいます。**「パラメータ数を増やせば、どんなデータにもフィッティングできる」**という、**数理生物学者にとって最も甘美な誘惑**に屈した結果です。
+                        現象が再現できないとき、私たちはつい、生物学的な根拠が曖昧なまま、非線形項、飽和項、フィードバック項を次々と追加してしまいます。<span class="emphasis">「パラメータ数を増やせば、どんなデータにもフィッティングできる」</span>という、<span class="emphasis">数理生物学者にとって最も甘美な誘惑</span>に屈した結果です。
                     </p>
 
                     <h3>確信犯 2: BLACK-BOXING BASED ON SELF-SERVING INTERPRETATION (独りよがりな解釈に基づくブラックボックス化)</h3>
                     <p class="critical-text">
-                        数理モデルは、その限界を意識し、どのような仮説に基づいて構築されたかを明示する**Duty**があります。しかし、私たちはこの**Duty**を怠りがちです。
+                        数理モデルは、その限界を意識し、どのような仮説に基づいて構築されたかを明示する<span class="emphasis">Duty</span>があります。しかし、私たちはこの<span class="emphasis">Duty</span>を怠りがちです。
                     </p>
 
                     <h3>確信犯 3: LACK OF MATHEMATICAL INTEREST (数理的な面白さの欠落と、その言い訳)</h3>
                     <p class="critical-text">
-                        数理生物学の真の価値は、生物学的な課題解決を通じて、**数理的に興味深い現象**を抽出し、新たな発見を行う点にもあります。
+                        数理生物学の真の価値は、生物学的な課題解決を通じて、<span class="emphasis">数理的に興味深い現象</span>を抽出し、新たな発見を行う点にもあります。
                     </p>
                 </section>
 
                 <section id="section-about" class="fade-in">
                     <h2>✅ THE ONLY PATH TO "SAIKYO": 3 ABSOLUTE DUTIES（3つの絶対的義務）</h2>
                     <p class="critical-text">
-                        あなたの研究を、自己満足に終わった「おもちゃ」から、科学の進歩に貢献する**「真のツール」**へと昇華させるために、以下の**3つのDuty**を必ず果たしてください。
+                        あなたの研究を、自己満足に終わった「おもちゃ」から、科学の進歩に貢献する<span class="emphasis">「真のツール」</span>へと昇華させるために、以下の<span class="emphasis">3つのDuty</span>を必ず果たしてください。
                     </p>
 
                     <ul class="duty-list">
                         <li class="fade-in">
                             <div class="duty-title">DUTY 1：Declare Your "WORLDVIEW" (コア仮説を潔く明示せよ)</div>
                             <p>
-                                モデルの各変数や項が、生命現象のどの本質的な要素に対応しているかを、**哲学的に突き詰めて**ください。多くの研究者は、この**「哲学」**を語る手間をサボり、数式をブラックボックス化します。
+                                モデルの各変数や項が、生命現象のどの本質的な要素に対応しているかを、<span class="emphasis">哲学的に突き詰めて</span>ください。多くの研究者は、この<span class="emphasis">「哲学」</span>を語る手間をサボり、数式をブラックボックス化します。
                             </p>
                             <div class="example-box">
                                 💡 記述例（理想の建前）：<br>
@@ -343,21 +408,21 @@
                         <li class="fade-in">
                             <div class="duty-title">DUTY 2：Offer A "NOVEL PREDICTION" (あなたのモデルだけが可能な新規予測を示せ)</div>
                             <p>
-                                単なる再現（レベル 0）は、数理生物学の成果ではありません。あなたのモデルが、実験的に未解明な現象や、新しい実験条件下で何が起こるかを**明確に予測**できなければ、それは**無価値**です。
+                                単なる再現（レベル 0）は、数理生物学の成果ではありません。あなたのモデルが、実験的に未解明な現象や、新しい実験条件下で何が起こるかを<span class="emphasis">明確に予測</span>できなければ、それは<span class="emphasis">無価値</span>です。
                             </p>
                             <div class="example-box">
                                 💡 問い（自己破壊への挑戦）：<br>
-                                **「このモデルが崩壊する条件」**をあえて提示できますか？ その限界こそが、次の発見への道筋となります。
+                                <span class="emphasis">「このモデルが崩壊する条件」</span>をあえて提示できますか？ その限界こそが、次の発見への道筋となります。
                             </div>
                         </li>
                         <li class="fade-in">
                             <div class="duty-title">DUTY 3：Mathematical Generality (数理的汎用性という名の科学への貢献を忘れずに)</div>
                             <p>
-                                モデルの解析を通じて見出された**数理的な新規現象**や**解析手法の新規性**をアピールしましょう。生物学の課題を解いたモデルが、**ついでに数理科学も進歩させてしまった**という体裁は、最高のインパクトになります。
+                                モデルの解析を通じて見出された<span class="emphasis">数理的な新規現象</span>や<span class="emphasis">解析手法の新規性</span>をアピールしましょう。生物学の課題を解いたモデルが、<span class="emphasis">ついでに数理科学も進歩させてしまった</span>という体裁は、最高のインパクトになります。
                             </p>
                             <div class="example-box">
                                 💡 視点の転換（誇大広告の勧め）：<br>
-                                あなたの数理的枠組みは、一見遠く離れた**他の生命現象**、あるいは**物理現象**の記述にも適用できる、**普遍的な構造**を持っていませんか？
+                                あなたの数理的枠組みは、一見遠く離れた<span class="emphasis">他の生命現象</span>、あるいは<span class="emphasis">物理現象</span>の記述にも適用できる、<span class="emphasis">普遍的な構造</span>を持っていませんか？
                             </div>
                         </li>
                     </ul>
@@ -366,9 +431,9 @@
                 <section class="fade-in">
                     <h2 style="border-bottom: none; text-align: center; margin-top: 80px; color: var(--color-accent-pink); text-shadow: var(--glow-pink);">🚀 CONCLUSION: IS YOUR EQUATION PREDICTING THE FUTURE?</h2>
                     <p class="catchphrase">
-                        **「ぼくのかんがえたさいきょうの数理モデル」**とは、<br>
-                        <span class="emphasis-final">**現時点での再現性**</span>を誇るものではなく、<br>
-                        <span class="emphasis-final">**50年後の生物学者が振り返ったとき、<br>「あれは正しかった」と証明されるモデル**</span>です。<br><br>
+                        <span class="emphasis_final_pre">「ぼくのかんがえたさいきょうの数理モデル」とは、</span><br>
+                        <span class="emphasis-final">現時点での再現性</span>を誇るものではなく、<br>
+                        <span class="emphasis-final">50年後の生物学者が振り返ったとき、<br>「あれは正しかった」と証明されるモデル</span>です。<br><br>
                         > ENGAGE SOUL. DISCOVER FUTURE.
                     </p>
                 </section>
