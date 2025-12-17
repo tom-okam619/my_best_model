@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html class="ja is-load" lang="ja">
+<head>
+    <base href="https://branding-career.co.jp/wp-content/themes/Archive-1/lp/recruit/">
+    <meta charset="UTF-8">
+    <title>§ ぼくのかんがえたさいきょうの数理モデル § | 理論生物学の深淵</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ====================================
+           1. Global Variables and Base Styles
+           ==================================== */
+        :root {
+            --color-bg-deep: #0C101A; /* Deep Blue-Black */
+            --color-primary-neon: #00FFFF; /* Cyan */
+            --color-secondary-neon: #7FFF00; /* Electric Green */
+            --color-accent-pink: #FF00FF; /* Magenta (Restricted Use) */
+            --color-mid-dark: #1F2937; /* Black-Gray for boxes */
+            --font-main: 'Share Tech Mono', 'Roboto Mono', monospace;
+            --glow-primary: 0 0 6px var(--color-primary-neon), 0 0 18px rgba(0, 255, 255, 0.7);
+            --glow-secondary: 0 0 6px var(--color-secondary-neon), 0 0 18px rgba(127, 255, 0, 0.7);
+            --glow-pink: 0 0 8px var(--color-accent-pink), 0 0 25px rgba(255, 0, 255, 0.9);
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-bg-deep);
+            color: #E0E0E0; /* Light text */
+            line-height: 1.7;
+            margin: 0;
+            overflow-x: hidden;
+            
+            /* Enhanced Network Grid Background */
+            background-image: 
+                radial-gradient(circle at 10% 10%, rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px, 50px 50px, 50px 50px;
+            background-position: 0 0;
+            
+            animation: bg-pulse 15s infinite alternate; /* Dynamic Background Pulse */
+        }
+        
+        /* Dynamic Background Animation */
+        @keyframes bg-pulse {
+            0% { background-color: #0C101A; }
+            50% { background-color: #121825; }
+            100% { background-color: #0C101A; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 5%;
+        }
+        
+        /* ====================================
+           2. Titles and Headers
+           ==================================== */
+        h1 {
+            font-size: 3.8rem;
+            color: var(--color-accent-pink); 
+            text-align: center;
+            line-height: 1.2;
+            text-shadow: var(--glow-pink);
+            padding-top: 50px;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.1em;
+            color: var(--color-primary-neon);
+            margin-top: 15px;
+            text-shadow: var(--glow-primary);
+        }
+
+        .theoretical-model-section h2 {
+            font-size: 2.2rem;
+            color: var(--color-secondary-neon);
+            border-bottom: 2px solid var(--color-secondary-neon);
+            padding-bottom: 10px;
+            margin: 60px 0 40px 0;
+            text-shadow: var(--glow-secondary);
+            transition: all 0.5s;
+        }
+        .theoretical-model-section h2:hover {
+            letter-spacing: 1px;
+        }
+
+        .theoretical-model-section h3 {
+            font-size: 1.6rem;
+            color: var(--color-primary-neon);
+            margin-top: 50px;
+            border-left: 5px solid var(--color-primary-neon);
+            padding-left: 15px;
+            text-shadow: var(--glow-primary);
+        }
+
+        .emphasis {
+            color: var(--color-secondary-neon);
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(127, 255, 0, 0.5);
+        }
+
+        /* ====================================
+           3. Lists and Boxes (Interactive)
+           ==================================== */
+        .duty-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .duty-list li {
+            margin-bottom: 35px;
+            padding: 25px;
+            background-color: var(--color-mid-dark); 
+            border: 1px solid var(--color-primary-neon);
+            border-radius: 4px;
+            transition: all 0.4s ease-in-out;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .duty-list li:hover {
+            background-color: #2a384e;
+            transform: translateY(-5px) scale(1.01) rotateZ(-0.5deg);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.6); 
+        }
+
+        .duty-title {
+            font-size: 1.4rem;
+            color: var(--color-primary-neon);
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-shadow: var(--glow-primary);
+        }
+
+        .example-box {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #05050A; 
+            border-left: 3px solid var(--color-secondary-neon);
+            color: #ccc;
+            font-style: italic;
+            font-size: 0.95em;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .example-box:hover {
+            box-shadow: 0 0 15px rgba(127, 255, 0, 0.7);
+        }
+
+        /* ====================================
+           4. Diagram Section (Interactive)
+           ==================================== */
+        .cyber-diagram-wrapper {
+            margin: 60px 0;
+            padding: 30px;
+            background: rgba(10, 10, 20, 0.8);
+            border: 2px solid var(--color-secondary-neon); /* Green border */
+            border-radius: 8px;
+            box-shadow: var(--glow-secondary);
+            position: relative;
+        }
+        .cyber-diagram {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .diag-node {
+            padding: 15px 20px;
+            width: 200px;
+            text-align: center;
+            border: 2px solid var(--color-primary-neon);
+            border-radius: 4px;
+            background: rgba(0, 255, 255, 0.15);
+            color: #fff;
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+        .diag-node:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+        }
+        .diag-node.process-node {
+            border: 2px solid var(--color-secondary-neon);
+            background: rgba(127, 255, 0, 0.15);
+        }
+        .diag-node.process-node:hover {
+            box-shadow: 0 0 25px rgba(127, 255, 0, 0.8);
+        }
+        .diag-label {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            color: var(--color-secondary-neon);
+            text-shadow: var(--glow-secondary);
+        }
+        .diag-arrow {
+            font-size: 3em;
+            color: var(--color-primary-neon);
+            margin: 0 20px;
+            text-shadow: var(--glow-primary);
+            animation: arrow-flow 1.5s infinite linear;
+        }
+
+        @keyframes arrow-flow {
+            0% { transform: scaleX(1) translateY(0); opacity: 0.8; }
+            50% { transform: scaleX(1.1) translateY(-2px); opacity: 1; }
+            100% { transform: scaleX(1) translateY(0); opacity: 0.8; }
+        }
+        
+        /* ====================================
+           5. Scroll Animation Styles
+           ==================================== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        
+        /* ====================================
+           6. Final Block
+           ==================================== */
+        .catchphrase {
+            font-size: 1.4rem;
+            text-align: center;
+            font-weight: bold;
+            margin: 80px 0;
+            padding: 30px;
+            border: 3px solid var(--color-accent-pink); 
+            border-radius: 10px;
+            background-color: #100C1A; 
+            box-shadow: var(--glow-pink), inset 0 0 15px rgba(255, 0, 255, 0.3);
+        }
+        .catchphrase .emphasis-final {
+            font-size: 1.6em;
+            line-height: 1.5;
+            display: block;
+            color: var(--color-accent-pink); 
+            text-shadow: var(--glow-pink);
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body class="top" id="top">
+    <main class="contents" id="js-contents" role="main">
+        <div class="container">
+            <header>
+                <div class="fade-in">
+                    <h1 class="top-visual__hd-anim">
+                        § ぼくのかんがえたさいきょうの数理モデル §<br>
+                        <span style="font-size: 0.6em; display: block; margin-top: 10px;">// THEORETICAL BIO-HACKING V3.0</span>
+                    </h1>
+                    <p class="subtitle">
+                        > TRUTH_ANALYSIS_INITIATED: 数式は、世界観の履歴書である。魂は込められているか？<br>
+                        > >> DATA_OVERRIDE_RUNNING...
+                    </p>
+                </div>
+            </header>
+
+            <div class="theoretical-model-section">
+
+                <section id="section-message" class="fade-in">
+                    <h2>🧠 モデル構築のリアルな動機（そして、その悲しい結末）</h2>
+                    <p class="critical-text">
+                        この世界には、ホジキン・ハクスレー（HH）という華々しい成功例が存在します。彼らは、活動電位という生命の根源的な現象に対し、**当時未解明だった「ゲート」の存在**という、まるで未来予知のような深い洞察を数理的に提示しました。
+                    </p>
+                    <p class="critical-text">
+                        しかし、我々の足元の現実はどうでしょう。学会会場を席巻するのは、**「とりあえず既存のモデルに項を一つ足しました」**、**「パラメータを増やしたら再現性が上がりました。画期的です」**と誇らしげに語る、**自称「さいきょう」モデル**の山です。
+                    </p>
+                    <p class="critical-text">
+                        モデルの評価が、**「なぜこの数式なのか」**ではなく、**「とりあえずデータに合えばよい」**という安易なゴールに設定された瞬間、そのモデルは、**<span class="emphasis">数式という名の独房</span>**に閉じ込められ、非常に限定的な事象しか説明できない**<span class="emphasis">「おもちゃ」</span>**と化します。私たちは、この自己満足に終わった「おもちゃのモデル」の氾濫と、真摯に向き合わなければなりません。
+                    </p>
+                </section>
+
+                <section id="cyber-diagram-section" class="fade-in">
+                    <h2>💾 [VISUALIZATION] 数理モデル・パイプライン・フロー</h2>
+                    <div class="cyber-diagram-wrapper">
+                        <div class="cyber-diagram">
+                            <div class="diag-node">
+                                <div class="diag-label">[INPUT_LAYER]</div>
+                                <p>RAW DATA & PARAMETER SETS</p>
+                            </div>
+                            <div class="diag-arrow">>>></div>
+                            <div class="diag-node process-node">
+                                <div class="diag-label">[CORE_PROCESS]</div>
+                                <p>EQUATION SOLVER $\partial^2 X / \partial t^2$</p>
+                            </div>
+                            <div class="diag-arrow">>>></div>
+                            <div class="diag-node">
+                                <div class="diag-label">[OUTPUT_RESULT]</div>
+                                <p>PREDICTION & SIMULATION</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="section-purpose" class="fade-in">
+                    <h2>💥 罪と罰：あなたのモデルが「無茶苦茶な設定」である三つの確信犯的パターン</h2>
+                    <p class="critical-text">
+                        数理モデルは、研究者の**「仮説」**という名の世界観に強く依存します。私たちは、その仮説（世界観）を構築する手間をサボった結果、以下のような**<span class="emphasis">確信犯的</span>**なミスを犯しがちです。
+                    </p>
+
+                    <h3>確信犯 1: 「とりあえず何でも足す」症候群</h3>
+                    <p class="critical-text">
+                        現象が再現できないとき、私たちはつい、生物学的な根拠が曖昧なまま、非線形項、飽和項、フィードバック項を次々と追加してしまいます。**「パラメータ数を増やせば、どんなデータにもフィッティングできる」**という、**数理生物学者にとって最も甘美な誘惑**に屈した結果です。
+                    </p>
+
+                    <h3>確信犯 2: 「独りよがりな解釈」に基づくブラックボックス化</h3>
+                    <p class="critical-text">
+                        数理モデルは、その限界を意識し、どのような仮説に基づいて構築されたかを明示する**義務**があります。しかし、私たちはこの義務を怠りがちです。
+                    </p>
+
+                    <h3>確信犯 3: 「数理的な面白さ」の欠落と、その言い訳</h3>
+                    <p class="critical-text">
+                        数理生物学の真の価値は、生物学的な課題解決を通じて、**数理的に興味深い現象**を抽出し、新たな発見を行う点にもあります。
+                    </p>
+                </section>
+
+                <section id="section-about" class="fade-in">
+                    <h2>✅ 「さいきょう」モデルへの唯一の道：3つの絶対義務（守れるものなら、守ってみろ）</h2>
+                    <p class="critical-text">
+                        あなたの研究を、自己満足に終わった「おもちゃ」から、科学の進歩に貢献する**「真のツール」**へと昇華させるために、以下の**3つの義務**を必ず果たしてください。
+                    </p>
+
+                    <ul class="duty-list">
+                        <li class="fade-in">
+                            <div class="duty-title">義務 1：あなたの「世界観」（コア仮説）を、潔く明示せよ</div>
+                            <p>
+                                モデルの各変数や項が、生命現象のどの本質的な要素に対応しているかを、**哲学的に突き詰めて**ください。多くの研究者は、この**「哲学」**を語る手間をサボり、数式をブラックボックス化します。
+                            </p>
+                            <div class="example-box">
+                                💡 記述例（理想の建前）：<br>
+                                「私たちは、<span class="emphasis">[仮説A]</span>という**世界観**に基づき、この現象の本質は<span class="emphasis">[数理的機構Y]</span>であると見なしました。」
+                            </div>
+                        </li>
+                        <li class="fade-in">
+                            <div class="duty-title">義務 2：あなたのモデルだけが可能な「新規予測」を示せ</div>
+                            <p>
+                                単なる再現（レベル 0）は、数理生物学の成果ではありません。あなたのモデルが、実験的に未解明な現象や、新しい実験条件下で何が起こるかを**明確に予測**できなければ、それは**無価値**です。
+                            </p>
+                            <div class="example-box">
+                                💡 問い（自己破壊への挑戦）：<br>
+                                **「このモデルが崩壊する条件」**をあえて提示できますか？ その限界こそが、次の発見への道筋となります。
+                            </div>
+                        </li>
+                        <li class="fade-in">
+                            <div class="duty-title">義務 3：数理的汎用性という名の「科学への貢献」を忘れずに</div>
+                            <p>
+                                モデルの解析を通じて見出された**数理的な新規現象**や**解析手法の新規性**をアピールしましょう。生物学の課題を解いたモデルが、**ついでに数理科学も進歩させてしまった**という体裁は、最高のインパクトになります。
+                            </p>
+                            <div class="example-box">
+                                💡 視点の転換（誇大広告の勧め）：<br>
+                                あなたの数理的枠組みは、一見遠く離れた**他の生命現象**、あるいは**物理現象**の記述にも適用できる、**普遍的な構造**を持っていませんか？
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="fade-in">
+                    <h2 style="border-bottom: none; text-align: center; margin-top: 80px; color: var(--color-accent-pink); text-shadow: var(--glow-pink);">🚀 結論：あなたの数式は、未来を予言しているか？</h2>
+                    <p class="catchphrase">
+                        **「ぼくのかんがえたさいきょうの数理モデル」**とは、<br>
+                        <span class="emphasis-final">**現時点での再現性**</span>を誇るものではなく、<br>
+                        <span class="emphasis-final">**50年後の生物学者が振り返ったとき、<br>「あれは正しかった」と証明されるモデル**</span>です。<br><br>
+                        > ENGAGE SOUL. DISCOVER FUTURE.
+                    </p>
+                </section>
+
+            </div>
+        </div>
+    </main>
+    <script>
+        // ====================================
+        // JavaScript for Scroll-Triggered Fade-In Animation
+        // ====================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            // 要素が画面内にあるかをチェックする関数
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                // 画面の高さの85%が見えたらトリガー
+                const threshold = (window.innerHeight || document.documentElement.clientHeight) * 0.85; 
+                return (rect.top < threshold);
+            }
+
+            // スクロール時に要素の可視性をチェックする関数
+            function handleScroll() {
+                elements.forEach(el => {
+                    if (isElementInViewport(el)) {
+                        el.classList.add('is-visible');
+                    }
+                });
+            }
+
+            // 初期ロード時とスクロール時に実行
+            handleScroll();
+            window.addEventListener('scroll', handleScroll);
+            window.addEventListener('resize', handleScroll);
+        });
+    </script>
+</body>
+</html>
