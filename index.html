@@ -3,7 +3,7 @@
 <head>
     <base href="https://branding-career.co.jp/wp-content/themes/Archive-1/lp/recruit/">
     <meta charset="UTF-8">
-    <title>§ ぼくのかんがえたさいきょうの数理モデル § | 理論生物学の深淵</title>
+    <title>§ BOKU NO KANGAETA SAIKYO NO MODEL § | THEORETICAL BIO-HACKING</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
         body {
             font-family: var(--font-main);
             background-color: var(--color-bg-deep);
-            color: #E0E0E0; /* Light text */
+            color: #E0E0E0; 
             line-height: 1.7;
             margin: 0;
             overflow-x: hidden;
@@ -40,10 +40,9 @@
             background-size: 50px 50px, 50px 50px, 50px 50px;
             background-position: 0 0;
             
-            animation: bg-pulse 15s infinite alternate; /* Dynamic Background Pulse */
+            animation: bg-pulse 15s infinite alternate; 
         }
         
-        /* Dynamic Background Animation */
         @keyframes bg-pulse {
             0% { background-color: #0C101A; }
             50% { background-color: #121825; }
@@ -87,9 +86,6 @@
             text-shadow: var(--glow-secondary);
             transition: all 0.5s;
         }
-        .theoretical-model-section h2:hover {
-            letter-spacing: 1px;
-        }
 
         .theoretical-model-section h3 {
             font-size: 1.6rem;
@@ -109,11 +105,6 @@
         /* ====================================
            3. Lists and Boxes (Interactive)
            ==================================== */
-        .duty-list {
-            list-style: none;
-            padding: 0;
-        }
-
         .duty-list li {
             margin-bottom: 35px;
             padding: 25px;
@@ -150,70 +141,86 @@
             border-radius: 2px;
             transition: all 0.3s;
         }
-        .example-box:hover {
-            box-shadow: 0 0 15px rgba(127, 255, 0, 0.7);
-        }
 
         /* ====================================
-           4. Diagram Section (Interactive)
+           4. Enhanced Network Diagram Section
            ==================================== */
         .cyber-diagram-wrapper {
             margin: 60px 0;
-            padding: 30px;
-            background: rgba(10, 10, 20, 0.8);
-            border: 2px solid var(--color-secondary-neon); /* Green border */
+            padding: 40px 20px;
+            background: linear-gradient(145deg, rgba(10, 10, 20, 0.9), rgba(18, 24, 37, 0.9));
+            border: 2px solid var(--color-secondary-neon); 
             border-radius: 8px;
             box-shadow: var(--glow-secondary);
             position: relative;
-        }
-        .cyber-diagram {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .diag-node {
-            padding: 15px 20px;
-            width: 200px;
-            text-align: center;
-            border: 2px solid var(--color-primary-neon);
-            border-radius: 4px;
-            background: rgba(0, 255, 255, 0.15);
-            color: #fff;
-            transition: all 0.4s;
-            cursor: pointer;
-        }
-        .diag-node:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
-        }
-        .diag-node.process-node {
-            border: 2px solid var(--color-secondary-neon);
-            background: rgba(127, 255, 0, 0.15);
-        }
-        .diag-node.process-node:hover {
-            box-shadow: 0 0 25px rgba(127, 255, 0, 0.8);
-        }
-        .diag-label {
-            font-weight: bold;
-            font-size: 1.2em;
-            margin-bottom: 5px;
-            color: var(--color-secondary-neon);
-            text-shadow: var(--glow-secondary);
-        }
-        .diag-arrow {
-            font-size: 3em;
-            color: var(--color-primary-neon);
-            margin: 0 20px;
-            text-shadow: var(--glow-primary);
-            animation: arrow-flow 1.5s infinite linear;
-        }
-
-        @keyframes arrow-flow {
-            0% { transform: scaleX(1) translateY(0); opacity: 0.8; }
-            50% { transform: scaleX(1.1) translateY(-2px); opacity: 1; }
-            100% { transform: scaleX(1) translateY(0); opacity: 0.8; }
+            height: 300px; /* Diagram height */
+            overflow: hidden;
         }
         
+        .metabolic-network {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .network-node {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            transition: box-shadow 0.5s;
+            cursor: pointer;
+            animation: node-pulse 3s infinite alternate;
+        }
+        
+        /* Specific Node Styles based on Metabolic Map colors */
+        .node-carb { background-color: #FF8C00; box-shadow: 0 0 10px #FF8C00; top: 10%; left: 15%; } /* Orange */
+        .node-photo { background-color: #7FFF00; box-shadow: var(--glow-secondary); top: 30%; left: 10%; } /* Green */
+        .node-respir { background-color: #FF00FF; box-shadow: var(--glow-pink); top: 50%; left: 30%; } /* Magenta/Respiration */
+        .node-lipid { background-color: #00FFFF; box-shadow: var(--glow-primary); top: 70%; left: 70%; } /* Cyan */
+        .node-nucleo { background-color: #B0C4DE; box-shadow: 0 0 10px #B0C4DE; top: 15%; left: 80%; } /* Light Blue/Nucleotide */
+        .node-key { background-color: var(--color-accent-pink); box-shadow: var(--glow-pink); top: 40%; left: 50%; width: 15px; height: 15px; } /* Central Key Node */
+
+        /* CSS Lines/Edges (Simplified using pseudo-elements/divs) */
+        .network-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(to right, rgba(0, 255, 255, 0.5), rgba(127, 255, 0, 0.5));
+            animation: line-flow 5s infinite linear;
+            z-index: 1;
+        }
+        .line-1 { width: 40%; top: 20%; left: 15%; transform: rotate(10deg); }
+        .line-2 { width: 60%; top: 50%; left: 10%; transform: rotate(-15deg); }
+        .line-3 { width: 30%; top: 60%; left: 50%; transform: rotate(45deg); }
+        .line-4 { width: 20%; top: 80%; left: 25%; transform: rotate(0deg); }
+
+        /* Animation for Nodes and Lines */
+        @keyframes node-pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes line-flow {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+        
+        /* Information Overlay for Diagram */
+        .diagram-info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            color: var(--color-primary-neon);
+            font-size: 1.4rem;
+            text-align: center;
+            text-shadow: var(--glow-primary);
+        }
+
         /* ====================================
            5. Scroll Animation Styles
            ==================================== */
@@ -230,17 +237,6 @@
         /* ====================================
            6. Final Block
            ==================================== */
-        .catchphrase {
-            font-size: 1.4rem;
-            text-align: center;
-            font-weight: bold;
-            margin: 80px 0;
-            padding: 30px;
-            border: 3px solid var(--color-accent-pink); 
-            border-radius: 10px;
-            background-color: #100C1A; 
-            box-shadow: var(--glow-pink), inset 0 0 15px rgba(255, 0, 255, 0.3);
-        }
         .catchphrase .emphasis-final {
             font-size: 1.6em;
             line-height: 1.5;
@@ -257,8 +253,8 @@
             <header>
                 <div class="fade-in">
                     <h1 class="top-visual__hd-anim">
-                        § ぼくのかんがえたさいきょうの数理モデル §<br>
-                        <span style="font-size: 0.6em; display: block; margin-top: 10px;">// THEORETICAL BIO-HACKING V3.0</span>
+                        § BOKU NO KANGAETA SAIKYO NO MATHEMATICAL MODEL §<br>
+                        <span style="font-size: 0.6em; display: block; margin-top: 10px;">// THEORETICAL BIO-HACKING V4.0 // ENGAGE SOUL</span>
                     </h1>
                     <p class="subtitle">
                         > TRUTH_ANALYSIS_INITIATED: 数式は、世界観の履歴書である。魂は込められているか？<br>
@@ -270,7 +266,7 @@
             <div class="theoretical-model-section">
 
                 <section id="section-message" class="fade-in">
-                    <h2>🧠 モデル構築のリアルな動機（そして、その悲しい結末）</h2>
+                    <h2>🧠 REALISTIC MOTIVATION: モデル構築のリアルな動機（悲しい結末）</h2>
                     <p class="critical-text">
                         この世界には、ホジキン・ハクスレー（HH）という華々しい成功例が存在します。彼らは、活動電位という生命の根源的な現象に対し、**当時未解明だった「ゲート」の存在**という、まるで未来予知のような深い洞察を数理的に提示しました。
                     </p>
@@ -283,68 +279,69 @@
                 </section>
 
                 <section id="cyber-diagram-section" class="fade-in">
-                    <h2>💾 [VISUALIZATION] 数理モデル・パイプライン・フロー</h2>
+                    <h2>💾 METABOLIC NETWORK: 数理モデル・パイプライン・フロー</h2>
                     <div class="cyber-diagram-wrapper">
-                        <div class="cyber-diagram">
-                            <div class="diag-node">
-                                <div class="diag-label">[INPUT_LAYER]</div>
-                                <p>RAW DATA & PARAMETER SETS</p>
-                            </div>
-                            <div class="diag-arrow">>>></div>
-                            <div class="diag-node process-node">
-                                <div class="diag-label">[CORE_PROCESS]</div>
-                                <p>EQUATION SOLVER $\partial^2 X / \partial t^2$</p>
-                            </div>
-                            <div class="diag-arrow">>>></div>
-                            <div class="diag-node">
-                                <div class="diag-label">[OUTPUT_RESULT]</div>
-                                <p>PREDICTION & SIMULATION</p>
-                            </div>
+                        <div class="metabolic-network">
+                            <div class="network-line line-1"></div>
+                            <div class="network-line line-2"></div>
+                            <div class="network-line line-3"></div>
+                            <div class="network-line line-4"></div>
+                            
+                            <div class="network-node node-carb"></div>
+                            <div class="network-node node-photo"></div>
+                            <div class="network-node node-respir"></div>
+                            <div class="network-node node-lipid"></div>
+                            <div class="network-node node-nucleo"></div>
+                            <div class="network-node node-key"></div>
+                        </div>
+                        <div class="diagram-info">
+                            // CORE MODEL: INITIATING DATA FLOW <br>
+                            // 複雑な生化学的ネットワークを数理的にハックせよ
                         </div>
                     </div>
                 </section>
                 
                 <section id="section-purpose" class="fade-in">
-                    <h2>💥 罪と罰：あなたのモデルが「無茶苦茶な設定」である三つの確信犯的パターン</h2>
+                    <h2>💥 SIN AND PUNISHMENT: 「無茶苦茶な設定」である三つの確信犯的パターン</h2>
                     <p class="critical-text">
                         数理モデルは、研究者の**「仮説」**という名の世界観に強く依存します。私たちは、その仮説（世界観）を構築する手間をサボった結果、以下のような**<span class="emphasis">確信犯的</span>**なミスを犯しがちです。
                     </p>
 
-                    <h3>確信犯 1: 「とりあえず何でも足す」症候群</h3>
+                    <h3>確信犯 1: "JUST ADD ANYTHING" SYNDROME (とりあえず何でも足す症候群)</h3>
                     <p class="critical-text">
                         現象が再現できないとき、私たちはつい、生物学的な根拠が曖昧なまま、非線形項、飽和項、フィードバック項を次々と追加してしまいます。**「パラメータ数を増やせば、どんなデータにもフィッティングできる」**という、**数理生物学者にとって最も甘美な誘惑**に屈した結果です。
                     </p>
 
-                    <h3>確信犯 2: 「独りよがりな解釈」に基づくブラックボックス化</h3>
+                    <h3>確信犯 2: BLACK-BOXING BASED ON SELF-SERVING INTERPRETATION (独りよがりな解釈に基づくブラックボックス化)</h3>
                     <p class="critical-text">
-                        数理モデルは、その限界を意識し、どのような仮説に基づいて構築されたかを明示する**義務**があります。しかし、私たちはこの義務を怠りがちです。
+                        数理モデルは、その限界を意識し、どのような仮説に基づいて構築されたかを明示する**Duty**があります。しかし、私たちはこの**Duty**を怠りがちです。
                     </p>
 
-                    <h3>確信犯 3: 「数理的な面白さ」の欠落と、その言い訳</h3>
+                    <h3>確信犯 3: LACK OF MATHEMATICAL INTEREST (数理的な面白さの欠落と、その言い訳)</h3>
                     <p class="critical-text">
                         数理生物学の真の価値は、生物学的な課題解決を通じて、**数理的に興味深い現象**を抽出し、新たな発見を行う点にもあります。
                     </p>
                 </section>
 
                 <section id="section-about" class="fade-in">
-                    <h2>✅ 「さいきょう」モデルへの唯一の道：3つの絶対義務（守れるものなら、守ってみろ）</h2>
+                    <h2>✅ THE ONLY PATH TO "SAIKYO": 3 ABSOLUTE DUTIES（3つの絶対的義務）</h2>
                     <p class="critical-text">
-                        あなたの研究を、自己満足に終わった「おもちゃ」から、科学の進歩に貢献する**「真のツール」**へと昇華させるために、以下の**3つの義務**を必ず果たしてください。
+                        あなたの研究を、自己満足に終わった「おもちゃ」から、科学の進歩に貢献する**「真のツール」**へと昇華させるために、以下の**3つのDuty**を必ず果たしてください。
                     </p>
 
                     <ul class="duty-list">
                         <li class="fade-in">
-                            <div class="duty-title">義務 1：あなたの「世界観」（コア仮説）を、潔く明示せよ</div>
+                            <div class="duty-title">DUTY 1：Declare Your "WORLDVIEW" (コア仮説を潔く明示せよ)</div>
                             <p>
                                 モデルの各変数や項が、生命現象のどの本質的な要素に対応しているかを、**哲学的に突き詰めて**ください。多くの研究者は、この**「哲学」**を語る手間をサボり、数式をブラックボックス化します。
                             </p>
                             <div class="example-box">
                                 💡 記述例（理想の建前）：<br>
-                                「私たちは、<span class="emphasis">[仮説A]</span>という**世界観**に基づき、この現象の本質は<span class="emphasis">[数理的機構Y]</span>であると見なしました。」
+                                「私たちは、<span class="emphasis">[Hypothesis A]</span>という**世界観**に基づき、この現象の本質は<span class="emphasis">[Mathematical Mechanism Y]</span>であると見なしました。」
                             </div>
                         </li>
                         <li class="fade-in">
-                            <div class="duty-title">義務 2：あなたのモデルだけが可能な「新規予測」を示せ</div>
+                            <div class="duty-title">DUTY 2：Offer A "NOVEL PREDICTION" (あなたのモデルだけが可能な新規予測を示せ)</div>
                             <p>
                                 単なる再現（レベル 0）は、数理生物学の成果ではありません。あなたのモデルが、実験的に未解明な現象や、新しい実験条件下で何が起こるかを**明確に予測**できなければ、それは**無価値**です。
                             </p>
@@ -354,7 +351,7 @@
                             </div>
                         </li>
                         <li class="fade-in">
-                            <div class="duty-title">義務 3：数理的汎用性という名の「科学への貢献」を忘れずに</div>
+                            <div class="duty-title">DUTY 3：Mathematical Generality (数理的汎用性という名の科学への貢献を忘れずに)</div>
                             <p>
                                 モデルの解析を通じて見出された**数理的な新規現象**や**解析手法の新規性**をアピールしましょう。生物学の課題を解いたモデルが、**ついでに数理科学も進歩させてしまった**という体裁は、最高のインパクトになります。
                             </p>
@@ -367,7 +364,7 @@
                 </section>
 
                 <section class="fade-in">
-                    <h2 style="border-bottom: none; text-align: center; margin-top: 80px; color: var(--color-accent-pink); text-shadow: var(--glow-pink);">🚀 結論：あなたの数式は、未来を予言しているか？</h2>
+                    <h2 style="border-bottom: none; text-align: center; margin-top: 80px; color: var(--color-accent-pink); text-shadow: var(--glow-pink);">🚀 CONCLUSION: IS YOUR EQUATION PREDICTING THE FUTURE?</h2>
                     <p class="catchphrase">
                         **「ぼくのかんがえたさいきょうの数理モデル」**とは、<br>
                         <span class="emphasis-final">**現時点での再現性**</span>を誇るものではなく、<br>
@@ -386,15 +383,12 @@
         document.addEventListener('DOMContentLoaded', function() {
             const elements = document.querySelectorAll('.fade-in');
             
-            // 要素が画面内にあるかをチェックする関数
             function isElementInViewport(el) {
                 const rect = el.getBoundingClientRect();
-                // 画面の高さの85%が見えたらトリガー
                 const threshold = (window.innerHeight || document.documentElement.clientHeight) * 0.85; 
                 return (rect.top < threshold);
             }
 
-            // スクロール時に要素の可視性をチェックする関数
             function handleScroll() {
                 elements.forEach(el => {
                     if (isElementInViewport(el)) {
@@ -403,7 +397,6 @@
                 });
             }
 
-            // 初期ロード時とスクロール時に実行
             handleScroll();
             window.addEventListener('scroll', handleScroll);
             window.addEventListener('resize', handleScroll);
